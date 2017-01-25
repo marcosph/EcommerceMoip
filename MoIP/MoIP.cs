@@ -13,12 +13,20 @@ namespace MoIP
         public string Key{get;set;}
         public string Razao{get;set;}
         public decimal Valor{get;set;}
+        public string IdProprio { get; set; }
+        public DateTime DataVencimento { get; set; }
 
         private string GetXML()
         {
             XmlDocument document = new XmlDocument();
+            XmlElement IdProprioNode = document.CreateElement("IdProprio");
+            IdProprioNode.InnerText = IdProprio;
+            XmlElement DataVencimentoNode = document.CreateElement("DataVencimento");
+            DataVencimentoNode.InnerText = DataVencimento.ToString();
+
             XmlElement RazaoNode = document.CreateElement("Razao");
             RazaoNode.InnerText = Razao;
+
             XmlElement ValoresNode = document.CreateElement("Valores");
             XmlElement ValorNode = document.CreateElement("Valor");
             XmlAttribute moeda = document.CreateAttribute("moeda");
@@ -34,6 +42,9 @@ namespace MoIP
 
             InstrucaoUnica.AppendChild(RazaoNode);
             InstrucaoUnica.AppendChild(ValoresNode);
+
+            InstrucaoUnica.AppendChild(IdProprioNode);
+            InstrucaoUnica.AppendChild(DataVencimentoNode);
 
             return EnviarInstrucao.OuterXml;
         }
@@ -73,6 +84,9 @@ namespace MoIP
 
             return GetMoIPRespostaFromXML(Response);
         }
+
+
+       
     }
 
     public class MoIPResposta
