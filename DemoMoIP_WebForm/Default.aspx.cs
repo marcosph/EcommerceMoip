@@ -19,6 +19,8 @@ namespace DemoMoIP_WebForm
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
+            // https://desenvolvedor.moip.com.br/sandbox/AdmAPI.do?method=manual
+            //http://marcosdx3-001-site1.ctempurl.com/
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             InstrucaoMoIP moip = new InstrucaoMoIP();
 
