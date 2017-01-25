@@ -249,6 +249,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\Demo.csproj">
+      <Project>{d6d95754-f5be-4b27-89d7-1076a360663e}</Project>
+      <Name>Demo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MoIP\MoIP.csproj">
       <Project>{e62a597d-9b72-4e8f-859e-acda1b1bc0e8}</Project>
       <Name>MoIP</Name>
@@ -269,7 +273,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51946</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51946/</IISUrl>
+          <IISUrl>http://localhost:51990/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

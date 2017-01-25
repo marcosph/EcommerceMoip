@@ -19,11 +19,6 @@ namespace MoIP
         private string GetXML()
         {
             XmlDocument document = new XmlDocument();
-            XmlElement IdProprioNode = document.CreateElement("IdProprio");
-            IdProprioNode.InnerText = IdProprio;
-            XmlElement DataVencimentoNode = document.CreateElement("DataVencimento");
-            DataVencimentoNode.InnerText = DataVencimento.ToString();
-
             XmlElement RazaoNode = document.CreateElement("Razao");
             RazaoNode.InnerText = Razao;
 
@@ -31,18 +26,36 @@ namespace MoIP
             XmlElement ValorNode = document.CreateElement("Valor");
             XmlAttribute moeda = document.CreateAttribute("moeda");
             moeda.Value = "BRL";
-
             ValorNode.Attributes.Append(moeda);
             ValorNode.InnerText = String.Format("{0:0.00}", Valor).Replace(',', '.');
-
             ValoresNode.AppendChild(ValorNode);
+
+
+            XmlElement IdProprioNode = document.CreateElement("IdProprio");
+            IdProprioNode.InnerText = IdProprio;
+
+            XmlElement DataVencimentoNode = document.CreateElement("DataVencimento");
+            DataVencimentoNode.InnerText = DataVencimento.ToString();
+
+            XmlElement Pagador = document.CreateElement("Pagador");
+            XmlElement NomeNode = document.CreateElement("Nome");
+            NomeNode.InnerText = "Luiz Inácio Lula da Silva";
+            XmlElement LoginMoIPNode = document.CreateElement("LoginMoIP");
+            LoginMoIPNode.InnerText = "lula";
+            XmlElement EmailNode = document.CreateElement("Email");
+            EmailNode.InnerText = "lula@gmail.com";
+            XmlElement TelefoneCelularNode = document.CreateElement("TelefoneCelular");
+            TelefoneCelularNode.InnerText = "(11)9999-9999";
+            XmlElement ApelidoNode = document.CreateElement("Apelido");
+            ApelidoNode.InnerText = "Ladrão";
+            XmlElement IdentidadeNode = document.CreateElement("Identidade");
+            IdentidadeNode.InnerText = "111.111.111-11";
 
             XmlNode EnviarInstrucao = document.CreateElement("EnviarInstrucao");
             XmlNode InstrucaoUnica = EnviarInstrucao.AppendChild(document.CreateNode(XmlNodeType.Element, "InstrucaoUnica", ""));
 
             InstrucaoUnica.AppendChild(RazaoNode);
             InstrucaoUnica.AppendChild(ValoresNode);
-
             InstrucaoUnica.AppendChild(IdProprioNode);
             InstrucaoUnica.AppendChild(DataVencimentoNode);
 
@@ -72,7 +85,7 @@ namespace MoIP
 
 
             string XMLInstrucao = GetXML();
-
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             WebClient client = new WebClient();
 
             string URI = "https://desenvolvedor.moip.com.br/sandbox/ws/alpha/EnviarInstrucao/Unica";
@@ -94,5 +107,30 @@ namespace MoIP
         public string ID { get; set; }
         public string Token { get; set; }
         public bool Sucesso { get; set; }
+    }
+    public class Pagador
+    {
+        public string Nome { get; set; }
+        public string LoginMoIP { get; set; }
+        public string Email { get; set; }
+        public string TelefoneCelular { get; set; }
+        public string Apelido { get; set; }
+        public string Identidade { get; set; }
+        public EnderecoCobranca EnderecoCobranca { get; set; }
+
+    }
+
+    public class EnderecoCobranca
+    {
+        public string Logradouro { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public string Pais { get; set; }
+        public string CEP { get; set; }
+        public string TelefoneFixo { get; set; }
+
     }
 }
