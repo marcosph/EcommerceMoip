@@ -3,27 +3,14 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
    <h2>Demo MoIP</h2>
-    <p class="text-danger">
-        <asp:Literal runat="server" ID="ErrorMessage" />
-    </p>
+    
+    <div class="row">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Token</label>
+            <asp:TextBox ID="token" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+        <asp:Button runat="server" OnClick="GerarToken_Click" Text="Gerar Token" CssClass="btn btn-success" />
 
-    <div class="form-horizontal">
-        <h4>Finalizar Pedido</h4>
-        <hr />
-       
-        <div class="form-group">
-            
-        </div>
-       
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <asp:Button  runat="server" OnClick="CreateUser_Click" Text="Comprar" CssClass="btn btn-success" />
-            </div>
-        </div>
     </div>
-    <script type="text/javascript">
-
-    </script>
-
-
+  
 </asp:Content>

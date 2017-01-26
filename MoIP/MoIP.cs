@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace MoIP
 {
@@ -98,8 +100,8 @@ namespace MoIP
             return GetMoIPRespostaFromXML(Response);
         }
 
-
        
+
     }
 
     public class MoIPResposta
@@ -133,4 +135,12 @@ namespace MoIP
         public string TelefoneFixo { get; set; }
 
     }
+
+
+    public class Employee
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
 }

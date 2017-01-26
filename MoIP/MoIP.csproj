@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Models\EnderecoCobranca.cs" />
+    <Compile Include="Models\EnviarInstrucao.cs" />
+    <Compile Include="Models\InstrucaoUnica.cs" />
+    <Compile Include="Models\Pagador.cs" />
+    <Compile Include="Models\Valores.cs" />
     <Compile Include="MoIP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

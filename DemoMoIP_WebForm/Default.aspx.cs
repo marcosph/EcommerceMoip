@@ -1,8 +1,7 @@
 ﻿using MoIP;
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Net;
+using System.Web.Services;
 using System.Web.UI;
 
 namespace DemoMoIP_WebForm
@@ -13,11 +12,11 @@ namespace DemoMoIP_WebForm
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-           
-
+            
         }
-
-        protected void CreateUser_Click(object sender, EventArgs e)
+       
+       
+        protected void GerarToken_Click(object sender, EventArgs e)
         {
             // https://desenvolvedor.moip.com.br/sandbox/AdmAPI.do?method=manual
             //http://marcosdx3-001-site1.ctempurl.com/
@@ -29,9 +28,10 @@ namespace DemoMoIP_WebForm
             moip.Razao = "Pagamento de testes";
             moip.Valor = 150.25M;
             MoIPResposta resposta = moip.Enviar();
-            var  Token = resposta.Token;
-            string r = "https://desenvolvedor.moip.com.br/Intrucao.do?token=" + Token;
-            Response.Redirect(r);
+            var success = resposta.Sucesso;
+            token.Text = resposta.Token;
+            //string r = "https://desenvolvedor.moip.com.br/Intrucao.do?token=" + Token;
+            //Response.Redirect(r);
 
             
         }

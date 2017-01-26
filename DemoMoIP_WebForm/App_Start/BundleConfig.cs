@@ -14,6 +14,7 @@ namespace DemoMoIP_WebForm
         {
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
+                             "~/Scripts/WebForms/jquery-1.10.2.min.js",
                             "~/Scripts/WebForms/WebUIValidation.js",
                             "~/Scripts/WebForms/MenuStandards.js",
                             "~/Scripts/WebForms/Focus.js",
