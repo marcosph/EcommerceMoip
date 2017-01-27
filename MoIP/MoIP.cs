@@ -1,16 +1,20 @@
-﻿using System;
+﻿using MoIP.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Web;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace MoIP
 {
     public class InstrucaoMoIP
     {
+        //https://labs.moip.com.br/parametro/InstrucaoUnica/
         public string Token{get;set;}
         public string Key{get;set;}
         public string Razao{get;set;}
@@ -60,8 +64,11 @@ namespace MoIP
             InstrucaoUnica.AppendChild(ValoresNode);
             InstrucaoUnica.AppendChild(IdProprioNode);
             InstrucaoUnica.AppendChild(DataVencimentoNode);
-
-            return EnviarInstrucao.OuterXml;
+            string path = HttpContext.Current.Server.MapPath("~/App_Data/data.xml");
+            XDocument doc = XDocument.Load(path);
+            var stringXml = doc.ToXmlDocument();
+            return stringXml.OuterXml;
+           // return EnviarInstrucao.OuterXml;
         }
 
         private MoIPResposta GetMoIPRespostaFromXML(string Response)

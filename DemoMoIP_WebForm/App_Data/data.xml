@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?> 
 <EnviarInstrucao>
     <InstrucaoUnica TipoValidacao="Transparente">
-        <Razao>Razão / Motivo do pagamento</Razao>
+        <Razao>Razão / Motivo do pagamento 2</Razao>
         <Valores>
-            <Valor moeda='BRL'>100.00</Valor>
+            <Valor moeda='BRL'>750.00</Valor>
         </Valores>
-        <IdProprio>ABC1234</IdProprio>
+        <IdProprio>ABC9090</IdProprio>
         <Pagador>
-           <Nome>Nome Sobrenome</Nome>
+           <Nome>Mario sergio</Nome>
            <Email>email@cliente.com.br</Email>
            <IdPagador>id_usuario</IdPagador>
            <EnderecoCobranca>
