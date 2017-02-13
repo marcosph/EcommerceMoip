@@ -105,10 +105,7 @@ namespace MoIP
             string Response = Encoding.UTF8.GetString(ResponseArray);
 
             return GetMoIPRespostaFromXML(Response);
-        }
-
-       
-
+        }    
     }
 
     public class MoIPResposta

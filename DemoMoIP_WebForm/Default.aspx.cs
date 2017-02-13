@@ -35,10 +35,12 @@ namespace DemoMoIP_WebForm
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-            
+            //var result = Helpers.ConsultarStatusPagamento("82U0J127R0K1G361O1R2K0W0B2K7O9S9E5P090Y0R0X001A2U5Z1T8R5S1C4");
+
+            var result = Helpers.ConsultarStatusPagamento("82U0J127Rddsfsf0K1G361O1R2K0W0B2K7O9S9E5P090Y0R0X001A2U5Z1T8R5S1C4");
         }
-       
-       
+
+
         protected void GerarToken_Click(object sender, EventArgs e)
         {
 
@@ -58,11 +60,14 @@ namespace DemoMoIP_WebForm
             var success = resposta.Sucesso;
             token.Text = resposta.Token;
             string Token = resposta.Token;
-           // var resul = moip.GetStatus(Token);
+            // var resul = moip.GetStatus(Token);
 
             //var t = "https://desenvolvedor.moip.com.br/sandbox/ws/alpha/ConsultarInstrucao/" + Token;
-           // string r = "https://desenvolvedor.moip.com.br/sandbox/Intrucao.do?token=" + Token;
-           // Response.Redirect(r);
+            // string r = "https://desenvolvedor.moip.com.br/sandbox/Intrucao.do?token=" + Token;
+            // Response.Redirect(r);
+
+
+         
 
 
         }
