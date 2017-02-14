@@ -106,5 +106,6 @@ namespace DemoMoIP_WebForm
         public const int Concluido = 4;
         public const int Cancelado = 5;
         public const int EmAnalise = 6;
+        public const int  Estornado= 7;
     }
 }

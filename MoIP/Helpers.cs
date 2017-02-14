@@ -57,7 +57,7 @@ namespace MoIP
             var resposta = new ConsultarInstrucao();
             resposta.RespostaConsultarID = XmlResposta.DocumentElement.SelectSingleNode("//RespostaConsultar//ID").InnerText;
             resposta.RespostaConsultarStatus = XmlResposta.DocumentElement.SelectSingleNode("//RespostaConsultar//Status").InnerText;
-            resposta.RespostaConsultarErro = XmlResposta.DocumentElement.SelectSingleNode("//RespostaConsultar//Erro").InnerText;
+          //  resposta.RespostaConsultarErro = XmlResposta.DocumentElement.SelectSingleNode("//RespostaConsultar//Erro").InnerText;
             resposta.RespostaConsultarStatusSuccess = resposta.RespostaConsultarStatus.Equals("Success") ? true : false;
 
             if (!resposta.RespostaConsultarStatus.Equals("Sucesso"))
