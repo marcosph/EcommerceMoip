@@ -11,7 +11,7 @@ namespace DemoMoIP_WebForm
     public partial class retorno : System.Web.UI.Page
     {
         const string KEY = "35B58690-F9FA-4C30-B9DF-1C32494E5D1B";
-        string sConnectionString = "Data Source=SQL5030.SmarterASP.NET;Initial Catalog=DB_A17575_DX4;User Id=DB_A17575_DX4_admin;Password=Florida#09;";
+        string sConnectionString = "Data Source=SQL5036.SmarterASP.NET;Initial Catalog=DB_A26D34_moipdx3;User Id=DB_A26D34_moipdx3_admin;Password=florida#09;";
 
         #region Page_Load
         protected void Page_Load(object sender, EventArgs e)
@@ -36,9 +36,9 @@ namespace DemoMoIP_WebForm
                         foreach (string name in Request.Form)
                             sFormData += name + "=" + Request.Form[name] + "&";
                         sFormData = sFormData.Trim('&');
-
+                        SaveLog(sFormData);
                         //Aqui salvo os dados como uma forma de historico
-                       // SaveLog(sFormData);
+                        // SaveLog(sFormData);
                         #endregion
 
                         const int APROVADO = 3;
@@ -46,6 +46,7 @@ namespace DemoMoIP_WebForm
 
                         //Pegar ID de status baseado no ID de retorno do MoIP.
                         int idPedidoStatus = Convert.ToInt32(Request.Form["status_pagamento"]);
+                        var id_transacao = Request.Form["id_transacao"].ToString();
 
                         if (idPedidoStatus != 0)
                         {                            
